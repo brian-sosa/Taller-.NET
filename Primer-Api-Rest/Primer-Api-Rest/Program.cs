@@ -9,20 +9,17 @@ builder.Services.AddMvc().AddControllersAsServices();
 
 
 
-// Swagger/OpenAPI
+// Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new() { Title = "Primer-Api-Rest", Version = "v1" });
-    // Si más adelante usas tipos especiales:
-    // c.CustomSchemaIds(t => t.FullName);
-    // c.MapType<DateOnly>(() => new OpenApiSchema { Type = "string", Format = "date" });
-    // c.MapType<TimeOnly>(() => new OpenApiSchema { Type = "string", Format = "time" });
+   
 });
 
 var app = builder.Build();
 
-// Swagger también en Development (como ya tenías)
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

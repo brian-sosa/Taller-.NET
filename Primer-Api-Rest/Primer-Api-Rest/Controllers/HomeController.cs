@@ -10,20 +10,18 @@ namespace Primer_Api_Rest.Controllers
 public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private IList<Tarea> _listaTareas;
+        private Dictionary<int,Tarea> _listaTareas = new Dictionary<int, Tarea>();
 
         public HomeController(ILogger<HomeController> logger)
         {
 
             _logger = logger;
 
-            this._listaTareas =
-            [
-                new Tarea(1, "Primer trabajo .NET", "Conociendo la plataforma .Net", 1, "Brian"),
-                new Tarea(2, "Segundo trabajo .NET", "Experimentando en .Net", 4, "Brian"),
-                new Tarea(3, "Tercer trabajo .NET", "Mira que lindo .Net", 2, "Brian"),
-                new Tarea(4, "Cuarto trabajo .NET", "Experto en .Net", 10, "Brian"),
-            ];
+            this._listaTareas[1] = new Tarea(1, "Primer trabajo .NET", "Conociendo la plataforma .Net", 1, "Brian");
+            this._listaTareas[2] = new Tarea(2, "Segundo trabajo .NET", "Experimentando en .Net", 4, "Brian");
+            this._listaTareas[3] = new Tarea(3, "Tercer trabajo .NET", "Mira que lindo .Net", 2, "Brian");
+            this._listaTareas[4] = new Tarea(4, "Cuarto trabajo .NET", "Experto en .Net", 10, "Brian");
+            
            
         }
 
@@ -39,14 +37,14 @@ public class HomeController : Controller
         public ActionResult GetById(int id)
         {
             _logger.LogInformation($"Retorno Tarea con el id : {id}");
-            return Ok(_listaTareas[id - 1]);
+            return Ok(_listaTareas[id]);
         }
 
         [HttpPost]
         public ActionResult CreateTarea([FromBody] Tarea Tarea)
         {
            
-            this._listaTareas.Add(Tarea);
+            this._listaTareas.Add(Tarea._Id,Tarea);
             
             return Ok();
         }
@@ -55,7 +53,7 @@ public class HomeController : Controller
         public ActionResult DeleteTarea(int id)
         {
             _logger.LogInformation("Eliminacion de Tarea");
-            this._listaTareas.RemoveAt(id - 1);
+            this._listaTareas.Remove(id);
             return Ok();
         }
 

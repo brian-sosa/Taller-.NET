@@ -6,11 +6,9 @@ public class Tarea
     public int _Id { get; set; }
     public String? _Nombre { get; set; }
     public String? _Descripcion { get; set; }
-   
-
     public int? _Duracion { get; set; }
     public String? _Responsable { get; set; }
-
+    public DateOnly _FechaCreacion { get; }
 
     public Tarea(int _Id, String _Nombre, String _Descripcion, int _Duracion, String _Responsable)
     {
@@ -19,6 +17,7 @@ public class Tarea
         this._Descripcion = _Descripcion;
         this._Duracion = _Duracion;
         this._Responsable = _Responsable;
+        this._FechaCreacion = DateOnly.FromDateTime(DateTime.Today);
     }
 
 
