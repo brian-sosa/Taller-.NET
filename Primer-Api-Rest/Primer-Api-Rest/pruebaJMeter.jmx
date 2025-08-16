@@ -20,11 +20,11 @@
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Petición HTTP" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Petición HTTP">
           <stringProp name="HTTPSampler.domain">localhost</stringProp>
           <stringProp name="HTTPSampler.port">8080</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.path">api/vehiculos</stringProp>
+          <stringProp name="HTTPSampler.path">api/home</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -34,7 +34,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree/>
-        <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ResponseCodesPerSecondGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Response Codes per Second" enabled="true">
+        <kg.apc.jmeter.vizualizers.CorrectedResultCollector guiclass="kg.apc.jmeter.vizualizers.ResponseCodesPerSecondGui" testclass="kg.apc.jmeter.vizualizers.CorrectedResultCollector" testname="jp@gc - Response Codes per Second">
           <boolProp name="ResultCollector.error_logging">false</boolProp>
           <objProp>
             <name>saveConfig</name>
@@ -79,7 +79,7 @@
           <boolProp name="exclude_checkbox_state">false</boolProp>
         </kg.apc.jmeter.vizualizers.CorrectedResultCollector>
         <hashTree/>
-        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Temporizador Constante" enabled="true">
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Temporizador Constante">
           <stringProp name="ConstantTimer.delay">500</stringProp>
         </ConstantTimer>
         <hashTree/>

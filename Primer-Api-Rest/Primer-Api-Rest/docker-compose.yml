@@ -1,16 +1,23 @@
 
 services:
   app1:
-    image: api-tarea
+    image: api-tareas
     ports:
-      - "3001:5264"  # Solo para acceso directo (opcional)
+      - "4000:5264"  # Solo para acceso directo (opcional)
     networks:
       - app_network
 
   app2:
-    image: api-tarea
+    image: api-tareas
     ports:
-      - "3002:5264"  # Solo para acceso directo (opcional)
+      - "4001:5264"  # Solo para acceso directo (opcional)
+    networks:
+      - app_network
+  
+  app3:
+    image: api-tareas
+    ports:
+      - "4002:5264"  # Solo para acceso directo (opcional)
     networks:
       - app_network
 
@@ -23,6 +30,7 @@ services:
     depends_on:
       - app1
       - app2
+      - app3
     networks:
       - app_network
 
