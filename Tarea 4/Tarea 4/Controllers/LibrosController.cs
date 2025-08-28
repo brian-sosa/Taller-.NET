@@ -3,7 +3,7 @@ using Tarea_4.Models.Libro;
 
 namespace MyApp.Namespace
 {
-
+    //Nuevo controlador para base para Libros
     public class LibrosController : Controller
     {
         private readonly ILogger<LibrosController> _logger;
